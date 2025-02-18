@@ -3,7 +3,7 @@ import { DEFAULT_IMAGE } from "../constants/defaultImage";
 
 const Card = ({ name, imageSource }) => {
   return (
-    <article>
+    <article className="card">
       <div className="article-wrapper">
         <figure>
           <img

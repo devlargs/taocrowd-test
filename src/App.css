@@ -262,7 +262,24 @@ input {
 
 .search-container {
   position: fixed;
-  background: darkgreen;
+  background: #446418;
   z-index: 1;
   width: 100%;
+}
+
+.card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
