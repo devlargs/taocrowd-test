@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import Card from "./components/Card";
 import { API_URL } from "./constants/apiUrl";
-import { uniqBy } from "lodash";
+import uniqBy from "./utils/uniqBy";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -38,8 +38,6 @@ function App() {
       }
     };
   }, [isEndOfList]);
-
-  console.log(searchText);
 
   const filteredData = useMemo(() => {
     if (!searchText) {
