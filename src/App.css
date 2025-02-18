@@ -20,7 +20,6 @@ article a::after {
   content: "";
 }
 
-/* basic article elements styling */
 article h2 {
   margin: 0 0 18px 0;
   font-family: "Bebas Neue", cursive;
@@ -69,7 +68,6 @@ article a .icon {
   transition: all 0.3s;
 }
 
-/* using the has() relational pseudo selector to update our custom properties */
 article:has(:hover, :focus) {
   --img-scale: 1.1;
   --title-color: #28666e;
@@ -78,10 +76,6 @@ article:has(:hover, :focus) {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
-
-/************************ 
-Generic layout (demo looks)
-**************************/
 
 *,
 *::before,
@@ -249,7 +243,6 @@ body {
 }
 
 input {
-  margin: 20px 25px;
   padding: 10px 12px;
   font-size: 16px;
   font-weight: 400;
@@ -265,6 +258,16 @@ input {
   background: #446418;
   z-index: 1;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+}
+
+.search-container p {
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .card {

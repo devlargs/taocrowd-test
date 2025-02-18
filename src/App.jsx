@@ -52,6 +52,8 @@ function App() {
   return (
     <div>
       <div className="search-container">
+        <p>SpaceX Launches</p>
+
         <input
           type="text"
           placeholder="Search"
@@ -71,7 +73,7 @@ function App() {
             />
           ))
         ) : (
-          <p className="no-data">No Data Found</p>
+          <p>{!loading && "No Data Found"}</p>
         )}
       </section>
 
