@@ -9,14 +9,20 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
+  const [isEndOfList, setIsEndOfList] = useState(false);
 
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
       const response = await fetch(`${API_URL}?limit=10&offset=${page * 10}`);
       const data = await response.json();
+      console.log(data);
       setData((prevData) => [...prevData, ...data]);
       setLoading(false);
+
+      if (!data.length) {
+        setIsEndOfList(true);
+      }
     };
 
     loadData();
@@ -25,26 +31,22 @@ function App() {
   useEffect(() => {
     window.onscroll = function () {
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        setPage((e) => e + 1);
+        if (!isEndOfList) {
+          setPage((e) => e + 1);
+        }
       }
     };
-  }, []);
+  }, [isEndOfList]);
 
   return (
-    <div className="App">
+    <div className="container">
       <input type="text" placeholder="Search" />
-      <button
-        onClick={() => {
-          setPage(page + 1);
-        }}
-      >
-        Add page
-      </button>
+
       <section className="articles">
         {data.map((item) => {
-          console.log(item.links.mission_patch);
           return (
             <Card
+              key={item.flight_number}
               details={item.details}
               name={item.mission_name}
               imageSource={item.links.mission_patch}
@@ -53,7 +55,8 @@ function App() {
         })}
       </section>
 
-      {loading && <span class="loader"></span>}
+      {loading && <span className="loader"></span>}
+      {isEndOfList && <p className="end-of-list">End of List</p>}
     </div>
   );
 }
