@@ -91,7 +91,8 @@ Generic layout (demo looks)
 
 body {
   margin: 0;
-  padding: 48px 0;
+  /* padding: 48px 0; */
+  padding-bottom: 48px;
   font-family: "Figtree", sans-serif;
   font-size: 1.2rem;
   line-height: 1.6rem;
@@ -106,6 +107,7 @@ body {
   padding-inline: 24px;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
+  padding-top: 100px;
 }
 
 @media screen and (max-width: 960px) {
@@ -255,4 +257,12 @@ input {
   border-radius: 9px;
   outline: none;
   border: none;
+  z-index: 3;
+}
+
+.search-container {
+  position: fixed;
+  background: darkgreen;
+  z-index: 1;
+  width: 100%;
 }

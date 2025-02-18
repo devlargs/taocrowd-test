@@ -50,25 +50,29 @@ function App() {
   }, [searchText, data]);
 
   return (
-    <div className="container">
-      <input
-        type="text"
-        placeholder="Search"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-      />
+    <div>
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+      </div>
 
       <section className="articles">
-        {filteredData.map((item) => {
-          return (
+        {filteredData.length ? (
+          filteredData.map((item) => (
             <Card
               key={item.flight_number}
               details={item.details}
               name={item.mission_name}
               imageSource={item.links.mission_patch}
             />
-          );
-        })}
+          ))
+        ) : (
+          <p className="no-data">No Data Found</p>
+        )}
       </section>
 
       {loading && (
