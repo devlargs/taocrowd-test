@@ -71,7 +71,11 @@ function App() {
         })}
       </section>
 
-      {loading && <span className="loader"></span>}
+      {loading && (
+        <div style={{ marginBottom: "100px" }}>
+          <span className="loader"></span>
+        </div>
+      )}
       {isEndOfList && <p className="end-of-list">End of List</p>}
     </div>
   );
