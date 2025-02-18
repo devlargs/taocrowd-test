@@ -1,7 +1,7 @@
 import React from "react";
 import { DEFAULT_IMAGE } from "../constants/defaultImage";
 
-const Card = ({ details, name, imageSource }) => {
+const Card = ({ name, imageSource }) => {
   return (
     <article>
       <div className="article-wrapper">

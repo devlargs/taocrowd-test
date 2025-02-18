@@ -22,6 +22,14 @@ function App() {
     loadData();
   }, [page]);
 
+  useEffect(() => {
+    window.onscroll = function () {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        setPage((e) => e + 1);
+      }
+    };
+  }, []);
+
   return (
     <div className="App">
       <input type="text" placeholder="Search" />
@@ -44,16 +52,6 @@ function App() {
           );
         })}
       </section>
-      {/* <section className="articles">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </section> */}
 
       {loading && <span class="loader"></span>}
     </div>
