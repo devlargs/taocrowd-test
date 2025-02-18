@@ -1,21 +1,23 @@
 import React from "react";
+import { DEFAULT_IMAGE } from "../constants/defaultImage";
 
-const Card = () => {
+const Card = ({ details, name, imageSource }) => {
   return (
     <article>
       <div className="article-wrapper">
         <figure>
-          <img src="https://picsum.photos/id/103/800/450" alt="" />
+          <img
+            src={imageSource}
+            alt={name + " Image"}
+            onError={(e) => (e.currentTarget.src = DEFAULT_IMAGE)}
+          />
         </figure>
         <div className="article-body">
-          <h2>This is some title</h2>
-          <p>
-            Curabitur convallis ac quam vitae laoreet. Nulla mauris ante,
-            euismod sed lacus sit amet, congue bibendum eros. Etiam mattis
-            lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
-          </p>
-          <a href="#" className="read-more">
-            Read more <span className="sr-only">about this is some title</span>
+          <h2>{name}</h2>
+          {/* <p>{details || "N/A"}</p> */}
+          <p></p>
+          <a className="read-more">
+            View Details <span className="sr-only"></span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="icon"
